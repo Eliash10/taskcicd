@@ -1,0 +1,24 @@
+name: Trigger On Push
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2  # This step checks out your repository
+
+    - name: Set up Python
+      uses: actions/setup-python@v2  # This step sets up Python
+      with:
+        python-version: 3.x  # Specify the Python version you need
+
+    - name: Run Python Script
+      run: python main.py  # Replace with your actual Python script name
+
+    # Add more steps or actions you want to perform on push
